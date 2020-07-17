@@ -7,7 +7,7 @@
 
     <OutputType>Library</OutputType>
 
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
