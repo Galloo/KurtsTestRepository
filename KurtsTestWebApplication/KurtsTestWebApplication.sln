@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject", "UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsConsoleApp", "KurtsConsoleApp\KurtsConsoleApp.csproj", "{27F477EA-FDA3-4991-B110-5CCF98E0172A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsNonCoreConsoleApp", "KurtsNonCoreConsoleApp\KurtsNonCoreConsoleApp.csproj", "{20E5669D-7699-4D75-8312-556E4617AD27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{27F477EA-FDA3-4991-B110-5CCF98E0172A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27F477EA-FDA3-4991-B110-5CCF98E0172A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27F477EA-FDA3-4991-B110-5CCF98E0172A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E5669D-7699-4D75-8312-556E4617AD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E5669D-7699-4D75-8312-556E4617AD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E5669D-7699-4D75-8312-556E4617AD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E5669D-7699-4D75-8312-556E4617AD27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
