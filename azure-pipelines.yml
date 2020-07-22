@@ -41,7 +41,7 @@ steps:
     serverUrl: 'ftp://13.94.209.180'
     username: 'kurt'
     password: 'Welkom123'
-    rootDirectory: '$(Build.BinariesDirectory)'
+    rootDirectory: '$(Build.artifactstagingdirectory)'
     filePatterns: '**'
     remoteDirectory: '/upload/$(Build.BuildId)/'
     clean: false
