@@ -17,7 +17,7 @@ namespace UnitTestProject
             IActionResult result = controller.Index() as IActionResult;
 
             // Assert
-            Assert.IsNull(result);
+            Assert.IsNotNull(result);
         }
     }
 }
