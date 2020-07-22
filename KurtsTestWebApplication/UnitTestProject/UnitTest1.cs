@@ -19,5 +19,18 @@ namespace UnitTestProject
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            // Arrange
+            HomeController controller = new HomeController(null);
+
+            // Act
+            IActionResult result = controller.Privacy() as IActionResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
