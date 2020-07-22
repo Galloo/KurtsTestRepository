@@ -48,6 +48,7 @@ steps:
 #     testRunTitle: 'NameForTheTestRun'
 
 - task: FtpUpload@2
+  displayName: 'FTP Upload Build.ArtifactStagingDirectory: $(Build.ArtifactStagingDirectory)'
   inputs:
     credentialsOption: 'inputs'
     serverUrl: 'ftp://13.94.209.180'
@@ -55,7 +56,23 @@ steps:
     password: 'Welkom123'
     rootDirectory: '$(Build.ArtifactStagingDirectory)'
     filePatterns: '**'
-    remoteDirectory: '/upload/$(Build.BuildId)/'
+    remoteDirectory: '/ArtifactStagingDirectory/$(Build.BuildId)/'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
+
+
+- task: FtpUpload@2
+  displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
+  inputs:
+    credentialsOption: 'inputs'
+    serverUrl: 'ftp://13.94.209.180'
+    username: 'kurt'
+    password: 'Welkom123'
+    rootDirectory: '$(Agent.BuildDirectory)'
+    filePatterns: '**'
+    remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
     clean: false
     cleanContents: false
     preservePaths: false
