@@ -34,14 +34,28 @@ steps:
     projects: '**/*.csproj'
     testRunTitle: 'NameForTheTestRun'
 
-- task: AzureFileCopy@4
+# - task: AzureFileCopy@4
+#   inputs:
+#     SourcePath: '*.*'
+#     azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
+#     Destination: 'AzureVMs'
+#     storage: 'pinalluat'
+#     resourceGroup: 'IDEEDS-PINALL'
+#     MachineNames: 'PIN-UAT-SRV01'
+#     vmsAdminUserName: 'compsol\ideeds'
+#     vmsAdminPassword: 'p1n.all=4UAT1'
+#     TargetPath: 'C:\Octopus\Applications\UAT.Kurt.Test\'
+
+- task: FtpUpload@2
   inputs:
-    SourcePath: '*.*'
-    azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
-    Destination: 'AzureVMs'
-    storage: 'pinalluat'
-    resourceGroup: 'IDEEDS-PINALL'
-    MachineNames: 'PIN-UAT-SRV01'
-    vmsAdminUserName: 'compsol\ideeds'
-    vmsAdminPassword: 'p1n.all=4UAT1'
-    TargetPath: 'C:\Octopus\Applications\UAT.Kurt.Test\'
+    credentialsOption: 'inputs'
+    serverUrl: '13.94.209.180'
+    username: 'kurt'
+    password: 'Welkom123'
+    rootDirectory: '/'
+    filePatterns: '**'
+    remoteDirectory: '/upload/$(Build.BuildId)/'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
