@@ -49,7 +49,7 @@ steps:
 - task: FtpUpload@2
   inputs:
     credentialsOption: 'inputs'
-    serverUrl: '13.94.209.180'
+    serverUrl: 'ftp://13.94.209.180'
     username: 'kurt'
     password: 'Welkom123'
     rootDirectory: '/'
