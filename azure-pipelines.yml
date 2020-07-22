@@ -53,7 +53,7 @@ steps:
     serverUrl: 'ftp://13.94.209.180'
     username: 'kurt'
     password: 'Welkom123'
-    rootDirectory: '$(Build.StagingDirectory)'
+    rootDirectory: '$(Build.ArtifactStagingDirectory)'
     filePatterns: '**'
     remoteDirectory: '/upload/$(Build.BuildId)/'
     clean: false
