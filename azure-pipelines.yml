@@ -44,4 +44,4 @@ steps:
     MachineNames: 'PIN-UAT-SRV01'
     vmsAdminUserName: 'compsol\ideeds'
     vmsAdminPassword: 'p1n.all=4UAT1'
-    TargetPath: 'C:\Octopus\Applications\UAT.Kurt.Test'
+    TargetPath: 'C:\Octopus\Applications\UAT.Kurt.Test\'
