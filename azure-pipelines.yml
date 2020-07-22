@@ -42,6 +42,6 @@ steps:
     storage: 'pinalluat'
     resourceGroup: 'IDEEDS-PINALL'
     MachineNames: 'PIN-UAT-SRV01'
-    vmsAdminUserName: 'ideeds'
+    vmsAdminUserName: 'compsol\ideeds'
     vmsAdminPassword: 'p1n.all=4UAT1'
     TargetPath: 'C:\Octopus\Applications\UAT.Kurt.Test'
