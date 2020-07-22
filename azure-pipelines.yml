@@ -28,19 +28,30 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-#- task: VSTest@2
-  #inputs:
-    #platform: '$(buildPlatform)'
-    #configuration: '$(buildConfiguration)'
-    #testAssemblyVer2: | # Required when testSelector == TestAssemblies
-    #  **\*test*.dll
-    #  **\bin\*test*.dll
-    #  !**\*TestAdapter.dll
-    #  !**\obj\** 
-
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: '**/*.csproj'
     testRunTitle: 'NameForTheTestRun'
+
+- task: CopyFiles@2
+  inputs:
+    #sourceFolder: # Optional
+    #contents: '**' 
+    targetFolder: 
+    #cleanTargetFolder: false # Optional
+    #overWrite: false # Optional
+    #flattenFolders: false # Optional
+    #preserveTimestamp: false # Optional
+
+    - task: AzureFileCopy@4
+      inputs:
+        SourcePath: 'mySourceFiles'
+        azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
+        Destination: 'AzureVMs'
+        storage: 'pinalluat'
+        resourceGroup: 'IDEEDS-PINALL'
+        MachineNames: 'PIN-UAT-SRV01'
+        vmsAdminUserName: 'kurt.santele@ideeds.be'
+        vmsAdminPassword: 'Welkom123'
+        TargetPath: 'myDestinationFolder'
