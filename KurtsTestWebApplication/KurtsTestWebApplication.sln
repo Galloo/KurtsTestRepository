@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsTestWebApplication", "KurtsTestWebApplication\KurtsTestWebApplication.csproj", "{5859571E-3FF2-4DBD-A5F3-FCC4CFF20C04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurtsTestWebApplication", "KurtsTestWebApplication\KurtsTestWebApplication.csproj", "{5859571E-3FF2-4DBD-A5F3-FCC4CFF20C04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{C3BF5A63-818F-4E76-9113-07D6BFC6857A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{C3BF5A63-818F-4E76-9113-07D6BFC6857A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsConsoleApp", "KurtsConsoleApp\KurtsConsoleApp.csproj", "{27F477EA-FDA3-4991-B110-5CCF98E0172A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C3BF5A63-818F-4E76-9113-07D6BFC6857A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3BF5A63-818F-4E76-9113-07D6BFC6857A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3BF5A63-818F-4E76-9113-07D6BFC6857A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F477EA-FDA3-4991-B110-5CCF98E0172A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F477EA-FDA3-4991-B110-5CCF98E0172A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F477EA-FDA3-4991-B110-5CCF98E0172A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F477EA-FDA3-4991-B110-5CCF98E0172A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
