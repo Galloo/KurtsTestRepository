@@ -44,14 +44,14 @@ steps:
     #flattenFolders: false # Optional
     #preserveTimestamp: false # Optional
 
-    - task: AzureFileCopy@4
-      inputs:
-        SourcePath: 'mySourceFiles'
-        azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
-        Destination: 'AzureVMs'
-        storage: 'pinalluat'
-        resourceGroup: 'IDEEDS-PINALL'
-        MachineNames: 'PIN-UAT-SRV01'
-        vmsAdminUserName: 'kurt.santele@ideeds.be'
-        vmsAdminPassword: 'Welkom123'
-        TargetPath: 'myDestinationFolder'
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: 'mySourceFiles'
+    azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
+    Destination: 'AzureVMs'
+    storage: 'pinalluat'
+    resourceGroup: 'IDEEDS-PINALL'
+    MachineNames: 'PIN-UAT-SRV01'
+    vmsAdminUserName: 'kurt.santele@ideeds.be'
+    vmsAdminPassword: 'Welkom123'
+    TargetPath: 'myDestinationFolder'
