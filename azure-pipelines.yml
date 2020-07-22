@@ -23,10 +23,22 @@ steps:
 
 - task: VSBuild@1
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    solution: '**\*.sln'
+    platform: 'Any CPU'
+    configuration: 'Release'
+    clean: true
+    maximumCpuCount: true
+    msbuildArchitecture: 'x64'
+    createLogFile: true
+    logFileVerbosity: 'detailed'
+
+# - task: VSBuild@1
+#   inputs:
+#     solution: '$(solution)'
+#     # msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+#     msbuildArgs: '/p:DeployOnBuild=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip"'
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
 
 
 # - task: DotNetCoreCLI@2
@@ -36,14 +48,31 @@ steps:
 #     testRunTitle: 'NameForTheTestRun'
 
 - task: FtpUpload@2
+  displayName: 'FTP Upload Build.ArtifactStagingDirectory: $(Build.ArtifactStagingDirectory)'
   inputs:
     credentialsOption: 'inputs'
     serverUrl: 'ftp://13.94.209.180'
     username: 'kurt'
     password: 'Welkom123'
-    rootDirectory: '$(Build.artifactstagingdirectory)'
+    rootDirectory: '$(Build.ArtifactStagingDirectory)'
     filePatterns: '**'
-    remoteDirectory: '/upload/$(Build.BuildId)/'
+    remoteDirectory: '/ArtifactStagingDirectory/$(Build.BuildId)/'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
+
+
+- task: FtpUpload@2
+  displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
+  inputs:
+    credentialsOption: 'inputs'
+    serverUrl: 'ftp://13.94.209.180'
+    username: 'kurt'
+    password: 'Welkom123'
+    rootDirectory: '$(Agent.BuildDirectory)'
+    filePatterns: '**'
+    remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
     clean: false
     cleanContents: false
     preservePaths: false
