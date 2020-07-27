@@ -80,6 +80,6 @@ steps:
     remoteServer: '172.17.50.11'
     remoteUserName: 'ideeds'
     remoteUserPassword: 'p1n.all=4UAT1'
-    remoteWinRMProtocol: 'http'
+    remoteWinRMProtocol: 'https'
     action: 'stop'
     serviceName: 'KurtsWindowsService'
