@@ -49,26 +49,37 @@ steps:
 #     projects: '**/*.csproj'
 #     testRunTitle: 'NameForTheTestRun'
 
-- task: AzureCLI@2
-  displayName: 'Execute script'
-  inputs:
-    azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
-    scriptType: 'bash'
-    scriptLocation: 'scriptPath'
-    scriptPath: 'FullyQualifiedPathOfBatOrCmdScript'
-    arguments: '' #myScriptArguments
 
-- task: FtpUpload@2
-  displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
+# - task: AzureCLI@2
+#   displayName: 'Execute script'
+#   inputs:
+#     azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
+#     scriptType: 'bash'
+#     scriptLocation: 'scriptPath'
+#     scriptPath: 'FullyQualifiedPathOfBatOrCmdScript'
+#     arguments: '' #myScriptArguments
+
+
+# - task: FtpUpload@2
+#   displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
+#   inputs:
+#     credentialsOption: 'inputs'
+#     serverUrl: 'ftp://13.94.209.180'
+#     username: 'kurt'
+#     password: 'Welkom123'
+#     rootDirectory: '$(Agent.BuildDirectory)'
+#     filePatterns: '**'
+#     remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
+#     clean: false
+#     cleanContents: false
+#     preservePaths: false
+#     trustSSL: false
+- task: ManageRemoteWindowsService@1
+  displayName: 'Manage Remote Windows Service'
   inputs:
-    credentialsOption: 'inputs'
-    serverUrl: 'ftp://13.94.209.180'
-    username: 'kurt'
-    password: 'Welkom123'
-    rootDirectory: '$(Agent.BuildDirectory)'
-    filePatterns: '**'
-    remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
-    clean: false
-    cleanContents: false
-    preservePaths: false
-    trustSSL: false
+    remoteServer: '172.17.50.11'
+    remoteUserName: 'ideeds'
+    remoteUserPassword: 'p1n.all=4UAT1'
+    remoteWinRMProtocol: 'http'
+    action: 'stop'
+    serviceName: 'KurtsWindowsService'
