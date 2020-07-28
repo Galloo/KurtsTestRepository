@@ -83,7 +83,7 @@ steps:
 - task: ManageRemoteWindowsService@1
   displayName: 'Manage Remote Windows Service'
   inputs:
-    remoteServer: '172.17.50.11'
+    remoteServer: '172.17.49.11'
     remoteUserName: 'ideeds'
     remoteUserPassword: 'p1n.all=4UAT1'
     remoteWinRMProtocol: 'https'
