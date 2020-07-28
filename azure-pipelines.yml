@@ -15,6 +15,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: CmdLine@2
+  displayName: 'Fetching IP address...'
+  inputs:
+    script: 'ipconfig /all' 
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -74,6 +79,7 @@ steps:
 #     cleanContents: false
 #     preservePaths: false
 #     trustSSL: false
+
 - task: ManageRemoteWindowsService@1
   displayName: 'Manage Remote Windows Service'
   inputs:
