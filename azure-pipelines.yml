@@ -64,17 +64,17 @@ steps:
 #     arguments: '' #myScriptArguments
 
 
-# - task: FtpUpload@2
-#   displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
-#   inputs:
-#     credentialsOption: 'inputs'
-#     serverUrl: 'ftp://13.94.209.180'
-#     username: 'kurt'
-#     password: 'Welkom123'
-#     rootDirectory: '$(Agent.BuildDirectory)'
-#     filePatterns: '**'
-#     remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
-#     clean: false
-#     cleanContents: false
-#     preservePaths: false
-#     trustSSL: false
+- task: FtpUpload@2
+  displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
+  inputs:
+    credentialsOption: 'inputs'
+    serverUrl: 'ftp://kurtsdevopsdeploymenttest.westeurope.cloudapp.azure.com'
+    username: 'kurtsdevopsdeploymenttest'
+    password: 'kurtsdevopsdeploymenttest'
+    rootDirectory: '$(Agent.BuildDirectory)'
+    filePatterns: '**'
+    remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
