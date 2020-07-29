@@ -47,12 +47,11 @@ steps:
 #     configuration: '$(buildConfiguration)'
 
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'Unit testing'
-#   inputs:
-#     command: 'test'
-#     projects: '**/*.csproj'
-#     testRunTitle: 'NameForTheTestRun'
+- task: DotNetCoreCLI@2
+  displayName: 'Unit testing...'
+  inputs:
+    command: 'test'
+    projects: '**/*.csproj'
 
 
 # - task: AzureCLI@2
