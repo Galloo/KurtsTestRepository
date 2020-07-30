@@ -15,6 +15,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: CmdLine@2
+  displayName: 'Fetching IP address...'
+  inputs:
+    script: 'ipconfig /all' 
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -22,6 +27,7 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
+  displayName: 'Building...'
   inputs:
     solution: '**\*.sln'
     platform: 'Any CPU'
@@ -41,39 +47,34 @@ steps:
 #     configuration: '$(buildConfiguration)'
 
 
-# - task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
+  displayName: 'Unit testing...'
+  inputs:
+    command: 'test'
+    projects: '**/*.csproj'
+
+
+# - task: AzureCLI@2
+#   displayName: 'Execute script'
 #   inputs:
-#     command: 'test'
-#     projects: '**/*.csproj'
-#     testRunTitle: 'NameForTheTestRun'
-
-- task: FtpUpload@2
-  displayName: 'FTP Upload Build.ArtifactStagingDirectory: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    credentialsOption: 'inputs'
-    serverUrl: 'ftp://13.94.209.180'
-    username: 'kurt'
-    password: 'Welkom123'
-    rootDirectory: '$(Build.ArtifactStagingDirectory)'
-    filePatterns: '**'
-    remoteDirectory: '/ArtifactStagingDirectory/$(Build.BuildId)/'
-    clean: false
-    cleanContents: false
-    preservePaths: false
-    trustSSL: false
+#     azureSubscription: 'MSDN MPN Core Benefits(d03f1a95-a58a-428c-a59f-6eda1995854a)'
+#     scriptType: 'bash'
+#     scriptLocation: 'scriptPath'
+#     scriptPath: 'FullyQualifiedPathOfBatOrCmdScript'
+#     arguments: '' #myScriptArguments
 
 
-- task: FtpUpload@2
-  displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
-  inputs:
-    credentialsOption: 'inputs'
-    serverUrl: 'ftp://13.94.209.180'
-    username: 'kurt'
-    password: 'Welkom123'
-    rootDirectory: '$(Agent.BuildDirectory)'
-    filePatterns: '**'
-    remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
-    clean: false
-    cleanContents: false
-    preservePaths: false
-    trustSSL: false
+# - task: FtpUpload@2
+#   displayName: 'FTP Upload Agent.BuildDirectory: $(Agent.BuildDirectory)'
+#   inputs:
+#     credentialsOption: 'inputs'
+#     serverUrl: 'ftp://kurtsdevopsdeploymenttest.westeurope.cloudapp.azure.com'
+#     username: 'kurtsdevopsdeploymenttest'
+#     password: 'kurtsdevopsdeploymenttest'
+#     rootDirectory: '$(Agent.BuildDirectory)'
+#     filePatterns: '**'
+#     remoteDirectory: '/BuildDirectory/$(Build.BuildId)/'
+#     clean: false
+#     cleanContents: false
+#     preservePaths: false
+#     trustSSL: false
