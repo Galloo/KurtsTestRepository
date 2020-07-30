@@ -26,35 +26,32 @@ steps:
   displayName: 'Building KurtsNonCoreWebApplication...'
   inputs:
     solution: '**/KurtsNonCoreWebApplication.csproj'
-    vsVersion: '16.0'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSBuild@1
-  displayName: 'Building KurtsConsoleApp...'
-  inputs:
-    solution: '**/KurtsConsoleApp.csproj'
-    vsVersion: '16.0'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    logFileVerbosity: 'detailed'
+# - task: VSBuild@1
+#   displayName: 'Building KurtsConsoleApp...'
+#   inputs:
+#     solution: '**/KurtsConsoleApp.csproj'
+#     vsVersion: '16.0'
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
+#     logFileVerbosity: 'detailed'
 
-- task: VSBuild@1
-  displayName: 'Building 2 KurtsNonCoreConsoleApp...'
-  inputs:
-    solution: '**\KurtsNonCoreConsoleApp.csproj'
-    vsVersion: '16.0'
-    platform: '$(buildPlatform)'
-    configuration: '(buildConfiguration)'
-    createLogFile: true
-    logFileVerbosity: 'diagnostic'
+# - task: VSBuild@1
+#   displayName: 'Building 2 KurtsNonCoreConsoleApp...'
+#   inputs:
+#     solution: '**\KurtsNonCoreConsoleApp.csproj'
+#     vsVersion: '16.0'
+#     platform: '$(buildPlatform)'
+#     configuration: '(buildConfiguration)'
+#     createLogFile: true
+#     logFileVerbosity: 'diagnostic'
 
-- task: MSBuild@1
-  displayName: 'Building 1 KurtsNonCoreConsoleApp...'
-  inputs:
-    solution: '**/KurtsNonCoreConsoleApp.csproj'
-    platform: '$(buildPlatform)'
-    configuration: '(buildConfiguration)'
-
-
+# - task: MSBuild@1
+#   displayName: 'Building 1 KurtsNonCoreConsoleApp...'
+#   inputs:
+#     solution: '**/KurtsNonCoreConsoleApp.csproj'
+#     platform: '$(buildPlatform)'
+#     configuration: '(buildConfiguration)'
