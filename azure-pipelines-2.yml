@@ -55,3 +55,5 @@ steps:
 #     solution: '**/KurtsNonCoreConsoleApp.csproj'
 #     platform: '$(buildPlatform)'
 #     configuration: '(buildConfiguration)'
+
+- task: PublishBuildArtifacts@1
