@@ -37,11 +37,23 @@ steps:
     configuration: '$(buildConfiguration)'
     logFileVerbosity: 'detailed'
 
-- task: VSBuild@1
-  displayName: 'Building KurtsNonCoreConsoleApp...'
+- task: MSBuild@1
+  displayName: 'Building 1 KurtsNonCoreConsoleApp...'
   inputs:
     solution: '**/KurtsNonCoreConsoleApp.csproj'
+    msbuildArchitecture: 'x64'
     platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    logFileVerbosity: 'detailed'
+    configuration: '(buildConfiguration)'
+    restoreNugetPackages: true
 
+
+- task: VSBuild@1
+  displayName: 'Building 2 KurtsNonCoreConsoleApp...'
+  inputs:
+    solution: '**\KurtsNonCoreConsoleApp.csproj'
+    platform: '$(buildPlatform)'
+    configuration: '(buildConfiguration)'
+    restoreNugetPackages: true
+    msbuildArchitecture: 'x64'
+    createLogFile: true
+    logFileVerbosity: 'diagnostic'
