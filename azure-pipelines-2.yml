@@ -12,7 +12,7 @@ pool:
 
 variables:
   solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
+  buildPlatform: 'AnyCPU'
   buildConfiguration: 'Release'
 
 steps:
@@ -47,7 +47,6 @@ steps:
     msbuildArchitecture: 'x64'
     platform: '$(buildPlatform)'
     configuration: '(buildConfiguration)'
-    restoreNugetPackages: true
 
 
 - task: VSBuild@1
@@ -57,7 +56,6 @@ steps:
     vsVersion: '16.0'
     platform: '$(buildPlatform)'
     configuration: '(buildConfiguration)'
-    restoreNugetPackages: true
     msbuildArchitecture: 'x64'
     createLogFile: true
     logFileVerbosity: 'diagnostic'
