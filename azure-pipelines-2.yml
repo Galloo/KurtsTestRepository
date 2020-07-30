@@ -37,3 +37,11 @@ steps:
     configuration: '$(buildConfiguration)'
     logFileVerbosity: 'detailed'
 
+- task: VSBuild@1
+  displayName: 'Building KurtsNonCoreConsoleApp...'
+  inputs:
+    solution: '**/KurtsNonCoreConsoleApp.csproj'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    logFileVerbosity: 'detailed'
+
