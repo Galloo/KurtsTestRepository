@@ -23,6 +23,14 @@ steps:
 
 
 - task: VSBuild@1
+  displayName: 'Building 2...'
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
   displayName: 'Building 1...'
   inputs:
     solution: '**\*.sln'
@@ -33,12 +41,3 @@ steps:
     msbuildArchitecture: 'x64'
     createLogFile: true
     logFileVerbosity: 'detailed'
-
-- task: VSBuild@1
-  displayName: 'Building 2...'
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
