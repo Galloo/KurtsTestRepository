@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurtsTestWebApplication", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{C3BF5A63-818F-4E76-9113-07D6BFC6857A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsConsoleApp", "KurtsConsoleApp\KurtsConsoleApp.csproj", "{27F477EA-FDA3-4991-B110-5CCF98E0172A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurtsConsoleApp", "KurtsConsoleApp\KurtsConsoleApp.csproj", "{27F477EA-FDA3-4991-B110-5CCF98E0172A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsNonCoreConsoleApp", "KurtsNonCoreConsoleApp\KurtsNonCoreConsoleApp.csproj", "{20E5669D-7699-4D75-8312-556E4617AD27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsWindowsService", "KurtsWindowsService\KurtsWindowsService.csproj", "{DF261B37-2A7D-4B9F-9768-FC9A82EA90C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurtsNonCoreWebApplication", "KurtsNonCoreWebApplication\KurtsNonCoreWebApplication.csproj", "{5B87DACB-3DE2-417B-9AC7-217CACB335BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{DF261B37-2A7D-4B9F-9768-FC9A82EA90C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF261B37-2A7D-4B9F-9768-FC9A82EA90C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF261B37-2A7D-4B9F-9768-FC9A82EA90C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B87DACB-3DE2-417B-9AC7-217CACB335BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B87DACB-3DE2-417B-9AC7-217CACB335BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B87DACB-3DE2-417B-9AC7-217CACB335BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B87DACB-3DE2-417B-9AC7-217CACB335BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
