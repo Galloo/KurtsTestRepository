@@ -24,7 +24,7 @@ steps:
 - task: VSBuild@1
   displayName: 'Building 1...'
   inputs:
-    solution: '**/KurtsNonCoreWebApplication.csproj'
+    solution: '**/KurtsNonCoreWebApplication/KurtsNonCoreWebApplication.csproj'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     clean: true
