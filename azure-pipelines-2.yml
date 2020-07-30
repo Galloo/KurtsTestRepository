@@ -22,7 +22,7 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
-  displayName: 'Building 2...'
+  displayName: 'Building KurtsNonCoreWebApplication...'
   inputs:
     solution: '**/KurtsNonCoreWebApplication.csproj'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
@@ -30,14 +30,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSBuild@1
-  displayName: 'Building 1...'
+  displayName: 'Building KurtsConsoleApp...'
   inputs:
-    solution: '**/KurtsNonCoreWebApplication.csproj'
+    solution: '**/KurtsConsoleApp.csproj'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-    clean: true
-    maximumCpuCount: true
-    msbuildArchitecture: 'x64'
-    createLogFile: true
     logFileVerbosity: 'detailed'
 
