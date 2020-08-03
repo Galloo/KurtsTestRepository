@@ -25,7 +25,7 @@ steps:
   displayName: 'Building KurtsWindowsService...'
   inputs:
     solution: '**/KurtsWindowsService.csproj'
-    msbuildArgs: '/p:DeployOnBuild=true /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    msbuildArgs: '/p:OutputPath="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
