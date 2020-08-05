@@ -1,0 +1,35 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  displayName: 'Building...'
+  inputs:
+    solution: '**\*.sln'
+    platform: 'Any CPU'
+    configuration: 'Release'
+    clean: true
+    maximumCpuCount: true
+    msbuildArchitecture: 'x64'
+    createLogFile: true
+    logFileVerbosity: 'detailed'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Unit testing...'
+  inputs:
+    command: 'test'
+    projects: '**/*.csproj'
